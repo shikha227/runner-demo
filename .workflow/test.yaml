@@ -1,0 +1,22 @@
+name: Python Script with Docker
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v2
+
+    - name: Build and Run Docker Container
+      uses: docker://python:3.9
+      with:
+        args: python test.py
+
+    # Additional steps for your workflow
+    # ...
