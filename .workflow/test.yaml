@@ -1,22 +1,18 @@
-name: Python Script with Docker
-
+name: CI
+env:
+  tag: python:latest
 on:
   push:
-    branches:
-      - main
-
+    branches: [ feature/E3SDK-27907-arche-unify-generation-part-and-separate-validation-action-to-py-script ]
 jobs:
-  build:
+  Run_PY_Script:
     runs-on: ubuntu-latest
-
+    container:
+      image: $tag
+      volumes:
+        - ${{ GITHUB.WORKSPACE }}:/C:/WORKSPACE
     steps:
-    - name: Checkout repository
-      uses: actions/checkout@v2
-
-    - name: Build and Run Docker Container
-      uses: docker://python:3.9
-      with:
-        args: python test.py
-
-    # Additional steps for your workflow
-    # ...
+     - uses: actions/checkout@v3
+     - name: Run Windows Command
+       run: |
+         python test.py
