@@ -7,10 +7,7 @@ on:
 jobs:
   Run_PY_Script:
     runs-on: ubuntu-latest
-    container:
-      image: ${{ env.tag }}
-      volumes:
-        - ${{ GITHUB.WORKSPACE }}:/C:/WORKSPACE
+    container: ${{ env.tag }}
     steps:
      - uses: actions/checkout@v3
      - name: Run Windows Command
