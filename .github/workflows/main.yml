@@ -3,7 +3,7 @@ env:
   tag: python:latest
 on:
   push:
-    branches: [ feature/E3SDK-27907-arche-unify-generation-part-and-separate-validation-action-to-py-script ]
+    branches: main
 jobs:
   Run_PY_Script:
     runs-on: ubuntu-latest
