@@ -12,14 +12,8 @@ jobs:
      - name: Run Windows Command
        run: |
          python test.py
-  Run_PY_Script:
-    runs-on: ubuntu-latest
-    container:
-      image: $tag
-      volumes:
-        - ${{ GITHUB.WORKSPACE }}:/C:/WORKSPACE
-    steps:
-     - uses: actions/checkout@v3
-     - name: Run Windows Command
-       run: |
-         python test.py
+         
+   call-workflow-passing-data:
+    uses: shikha227/runner-demo/.github/workflows/resuable.yaml@main
+    with:
+      tag: python:latest
