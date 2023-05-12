@@ -5,14 +5,15 @@ on:
   push:
     branches: main
 jobs:
-  Run_PY_Script:
+  Create_Env_Var:
     runs-on: ubuntu-latest
-    container: 
-      image: env.tag
-      volumes:
-        - ${{ GITHUB.WORKSPACE }}:/C:/WORKSPACE
     steps:
      - uses: actions/checkout@v3
      - name: Run Windows Command
        run: |
          python test.py
+         
+  call-workflow-passing-data:
+   uses: shikha227/runner-demo/.github/workflows/resuable.yaml@main
+   with:
+     tag: python:latest
