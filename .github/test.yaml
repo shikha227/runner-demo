@@ -13,7 +13,7 @@ jobs:
        run: |
          python test.py
          
-   call-workflow-passing-data:
-    uses: shikha227/runner-demo/.github/workflows/resuable.yaml@main
-    with:
-      tag: python:latest
+  call-workflow-passing-data:
+   uses: shikha227/runner-demo/.github/workflows/resuable.yaml@main
+   with:
+     tag: python:latest
